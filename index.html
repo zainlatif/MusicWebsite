@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the World of Music</h1>
+            <p>Discover your favorite tunes and explore new genres.</p>
+            <button id="explore-button">Explore Music</button>
+        </div>
+    </header>
+
+    <section class="music-section">
+        <h2>Featured Music</h2>
+        <div class="music-container">
+            <div class="music-item">
+                <img src="media/album1.png" alt="Album 1">
+                <p>Song Title 1</p>
+                <button class="play-button" data-audio="media/audio1.mp3">Play</button>
+            </div>
+            <div class="music-item">
+                <img src="media/album2.png" alt="Album 2">
+                <p>Song Title 2</p>
+                <button class="play-button" data-audio="media/audio2.mp3">Play</button>
+            </div>
+            <div class="music-item">
+                <img src="media/album3.png" alt="Album 3">
+                <p>Song Title 3</p>
+                <button class="play-button" data-audio="media/audio3.mp3">Play</button>
+            </div>
+        </div>
+    </section>
+
+    <audio id="audio-player" controls style="display: inline;;"></audio>
+
+    <script>
+        // JavaScript to handle play button functionality
+        const playButtons = document.querySelectorAll('.play-button');
+        const audioPlayer = document.getElementById('audio-player');
+
+        playButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const audioFile = button.getAttribute('data-audio');
+                audioPlayer.src = audioFile;
+                audioPlayer.style.display = 'block';  // Show the audio player
+                audioPlayer.play();
+            });
+        });
+    </script>
+</body>
+</html>
